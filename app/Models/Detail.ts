@@ -24,6 +24,9 @@ export default class Detail extends BaseModel {
   @belongsTo(() => Transaction)
   public transaction: BelongsTo<typeof Transaction>
 
+  @column()
+  public father?: number
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 

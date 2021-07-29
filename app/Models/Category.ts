@@ -24,6 +24,9 @@ export default class Category extends BaseModel {
   @hasMany(() => Transaction)
   public transactions: HasMany<typeof Transaction>
 
+  @column()
+  public father?: number
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 
