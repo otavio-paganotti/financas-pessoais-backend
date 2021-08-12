@@ -1,14 +1,11 @@
 import { HttpContextContract } from "@ioc:Adonis/Core/HttpContext";
 import User from 'App/Models/User'
 
-export default class UsersController {
+export default class GetUserById {
     public async index ({ request, response}: HttpContextContract) {
         try {
-            const query = request.qs()
-            // if(!query.page){
-            //     throw new Error('Paramentro page é obrigatório')
-            // }//pode-se criar controles de erros ou situações
-            const users = await User.all()
+            const query = request.param('id')
+            const users = await User.find(query)
             response.status(200).send({
                 query,
                 success: true,
